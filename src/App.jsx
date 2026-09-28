@@ -3,18 +3,37 @@ import heroImg from "./assets/hero.png";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import "./App.css";
-import Todo from './components/Todo.jsx';
-import Title from './components/Title.jsx';
+import Todo from "./components/Todo.jsx";
+import Title from "./components/Title.jsx";
+import Modal from "./components/modal.jsx";
+import React, { useState } from 'react';
 
 function App() {
+  
+  
   return (
     <div>
+      <h1>My Todo List</h1>
       <Title />
-      
-      <Title />
-      <Todo />
-      <Todo />
-      <Todo />
+      <div>
+      <input type="text" onChange={(event) => {
+       console.log(event.target.value) 
+      }} />
+      <button onClick={toggleModal}>Add todo</button>
+      </div>
+      <div className="todo__wrapper">
+        <Todo
+          title="Finish Frontend Simplified"
+          paragraph="Code along with Frontend Simplified step by step."
+        />
+        <Todo
+          title="Finish Interview Section"
+          paragraph="Finish every interview question in the next 6 weeks."
+        />
+        <Todo title="Land a $100k Job" 
+        paragraph="Apply to 100 jobs."/>
+      </div>
+      {isModalOpen && <Modal title="Confirm Delete?" />}
     </div>
   );
 }
