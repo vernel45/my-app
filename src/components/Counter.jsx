@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Counter() {
-    function incrementCounter() {
+  const [count, setCounter] = useState(0);
+  function incrementCounter() {
+    setCounter(counter + 1);
+  }
 
-    }
-        
-        function decrementCounter() {
-
-        }
-        return {
+  function decrementCounter() {
+    setCounter(counter - 1);
+  }
+  return (
     <div>
-<button onClick={decrementCounter}>-</button>
-{0}
-<button onClick={incrementCounter}>+</button>
+      <button onClick={decrementCounter}>-</button>
+      {0}
+      <button onClick={incrementCounter}>+</button>
+    </div>
+  );
 }
-}
-
 
 export default Counter;
