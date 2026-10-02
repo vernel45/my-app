@@ -11,9 +11,18 @@ import Counter from "./components/Counter.jsx";
 function App() {
   const [showModal, setShowModal] = useState(false);
 
-  function onTodoDelete () {
-    console.log('onTodoDelete()')
-  } 
+  function onTodoDelete() {
+    setShowModal(true);
+    console.log("onTodoDelete()");
+  }
+
+  function cancelModal() {
+    setShowModal(false);
+  }
+
+  function confirmModal() {
+    setShowModal(false);
+  }
 
   return (
     <div>
@@ -29,17 +38,29 @@ function App() {
         <button onClick={() => setShowModal(true)}>Add todo</button>
       </div>
       <div className="todo__wrapper">
-        <Todo onTodoDelete={onTodoDelete}
+        <Todo
+          onTodoDelete={onTodoDelete}
           title="Finish Frontend Simplified"
           paragraph="Code along with Frontend Simplified step by step."
         />
-        <Todo onTodoDelete={onTodoDelete}
+        <Todo
+          onTodoDelete={onTodoDelete}
           title="Finish Interview Section"
           paragraph="Finish every interview question in the next 6 weeks."
         />
-        <Todo onTodoDelete={onTodoDelete} title="Land a $100k Job" paragraph="Apply to 100 jobs." />
+        <Todo
+          onTodoDelete={onTodoDelete}
+          title="Land a $100k Job"
+          paragraph="Apply to 100 jobs."
+        />
       </div>
-      {showModal && <Modal title="Confirm Delete?" />}
+      {showModal && (
+        <Modal
+          cancelModal={cancelModal}
+          confirmModal={confirmModal}
+          title="Confirm Delete?"
+        />
+      )}
     </div>
   );
 }
