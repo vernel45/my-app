@@ -23,16 +23,16 @@ function Home() {
  
   return (
     <div>
-      {users.map((user) => (
-        <Link to={`/users/${user.username}`}
-        <User
-        key={user.id}
-         id={user.id}
-         name={user.name} 
-         email={user.email} 
-         username={user.username} />
-         </Link>
-      ))}
+   {users.map((user) => (
+  <Link key={user.id} to={`/users/${user.username}`}>
+    <User
+      id={user.id}
+      name={user.name}
+      email={user.email}
+      username={user.username}
+    />
+  </Link>
+))}
     </div>
   );
 }
