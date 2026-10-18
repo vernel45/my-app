@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Nav from "./components/Nav"
+import Nav from "./components/nav.jsx"
 import Users from "./pages/Users"
 
 function App() {

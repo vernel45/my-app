@@ -6,7 +6,7 @@ function User ({id, name, email, username}) {
           <div>{username}</div>
         </div>
 
-
+return (...)
 }
 
 export default User
